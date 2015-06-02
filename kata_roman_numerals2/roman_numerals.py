@@ -10,19 +10,19 @@ class myTestSuite(unittest.TestCase):
     def number2roman(self, number):
 	if(number<0):
 	    return "" 
-	if(number==14):
-	    return "XIV"
-	if(number==15):
-	    return "XV"
 
     	preset_roman = {0:"",5:"V",10:"X",50:"L",100:"C",500:"D",1000:"M"}
 	keys = preset_roman.keys()
 	keys.sort()
+	lastkey=0
 	for key in keys:
 	    if(number-key>=0 and number-key<=3):
 		return preset_roman[key]+"".ljust(number-key,"I")
 	    if(key-number==1):
 		return preset_roman[key].rjust(2,"I")
+	    if(key>number):
+		return preset_roman[lastkey]+self.number2roman(number-lastkey)
+	    lastkey=key
 	return "" 
 
     def test_0_return_empty(self):
