@@ -8,6 +8,8 @@ class myTestSuite(unittest.TestCase):
         pass
 
     def number2roman(self, number):
+	if(number == 1):
+	    return "I"
 	return "" 
 
     def test_0_return_empty(self):
@@ -15,6 +17,9 @@ class myTestSuite(unittest.TestCase):
 
     def test__1_return_empty(self):
         self.assertEqual(self.number2roman(-1), "")
+
+    def test_1_return_I(self):
+        self.assertEqual(self.number2roman(1), "I")
 
 if __name__ == "__main__":
     unittest.main()
