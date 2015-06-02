@@ -8,7 +8,7 @@ class myTestSuite(unittest.TestCase):
         pass
 
     def number2roman(self, number):
-    	preset_roman = {1:"I",5:"V"}
+    	preset_roman = {1:"I",5:"V",10:"X",50:"L",100:"C",500:"D",1000:"M"}
 	if(preset_roman.has_key(number)):
 	    return preset_roman[number]
 	return "" 
@@ -24,6 +24,21 @@ class myTestSuite(unittest.TestCase):
 
     def test_5_return_V(self):
         self.assertEqual(self.number2roman(5), "V")
+
+    def test_10_return_X(self):
+        self.assertEqual(self.number2roman(10), "X")
+
+    def test_50_return_L(self):
+        self.assertEqual(self.number2roman(50), "L")
+
+    def test_100_return_C(self):
+        self.assertEqual(self.number2roman(100), "C")
+    
+    def test_500_return_C(self):
+        self.assertEqual(self.number2roman(500), "D")
+
+    def test_1000_return_M(self):
+        self.assertEqual(self.number2roman(1000), "M")
 
 if __name__ == "__main__":
     unittest.main()
