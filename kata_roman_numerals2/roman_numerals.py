@@ -8,10 +8,9 @@ class myTestSuite(unittest.TestCase):
         pass
 
     def number2roman(self, number):
-	if(number == 5):
-	    return "V"
-	if(number == 1):
-	    return "I"
+    	preset_roman = {1:"I",5:"V"}
+	if(preset_roman.has_key(number)):
+	    return preset_roman[number]
 	return "" 
 
     def test_0_return_empty(self):
