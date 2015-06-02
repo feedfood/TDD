@@ -11,6 +11,9 @@ class myTestSuite(unittest.TestCase):
     	preset_roman = {1:"I",5:"V",10:"X",50:"L",100:"C",500:"D",1000:"M"}
 	if(preset_roman.has_key(number)):
 	    return preset_roman[number]
+
+	if(number==2):
+	    return "II"
 	return "" 
 
     def test_0_return_empty(self):
@@ -39,6 +42,9 @@ class myTestSuite(unittest.TestCase):
 
     def test_1000_return_M(self):
         self.assertEqual(self.number2roman(1000), "M")
+
+    def test_2_return_II(self):
+        self.assertEqual(self.number2roman(2), "II")
 
 if __name__ == "__main__":
     unittest.main()
