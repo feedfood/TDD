@@ -11,9 +11,7 @@ class myTestSuite(unittest.TestCase):
 	if(number<0):
 	    return "" 
 
-	if(number==40):
-	    return "XL"
-
+	right_value = {1:"I",10:"X",100:"C"}
     	preset_roman = {0:"",5:"V",10:"X",50:"L",100:"C",500:"D",1000:"M"}
 	keys = preset_roman.keys()
 	keys.sort()
@@ -21,8 +19,8 @@ class myTestSuite(unittest.TestCase):
 	for key in keys:
 	    if(number-key>=0 and number-key<=3):
 		return preset_roman[key]+"".ljust(number-key,"I")
-	    if(key-number==1):
-		return preset_roman[key].rjust(2,"I")
+	    if(key-number in right_value.keys()):
+		return preset_roman[key].rjust(2,right_value[key-number])
 	    if(key>number):
 		return preset_roman[lastkey]+self.number2roman(number-lastkey)
 	    lastkey=key
@@ -81,6 +79,9 @@ class myTestSuite(unittest.TestCase):
 
     def test_40_return_XL(self):
         self.assertEqual(self.number2roman(40), "XL")
+
+    def test_90_return_XC(self):
+        self.assertEqual(self.number2roman(90), "XC")
 
 if __name__ == "__main__":
     unittest.main()
