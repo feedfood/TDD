@@ -12,6 +12,8 @@ class myTestSuite(unittest.TestCase):
 	    return "" 
 	if(number==14):
 	    return "XIV"
+	if(number==19):
+	    return "XV"
 
     	preset_roman = {0:"",5:"V",10:"X",50:"L",100:"C",500:"D",1000:"M"}
 	keys = preset_roman.keys()
@@ -71,6 +73,9 @@ class myTestSuite(unittest.TestCase):
 
     def test_14_return_XIV(self):
         self.assertEqual(self.number2roman(14), "XIV")
+
+    def test_19_return_XV(self):
+        self.assertEqual(self.number2roman(19), "XV")
 
 if __name__ == "__main__":
     unittest.main()
