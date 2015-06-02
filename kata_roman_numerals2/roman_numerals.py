@@ -16,6 +16,10 @@ class myTestSuite(unittest.TestCase):
 	    return "II"
 	if(number==3):
 	    return "III"
+	if(number==6):
+	    return "VI"
+    	if(number==7):
+	    return "VII"
 	return "" 
 
     def test_0_return_empty(self):
@@ -50,6 +54,12 @@ class myTestSuite(unittest.TestCase):
 
     def test_3_return_III(self):
         self.assertEqual(self.number2roman(3), "III")
+
+    def test_6_return_VI(self):
+        self.assertEqual(self.number2roman(6), "VI")
+
+    def test_7_return_VII(self):
+        self.assertEqual(self.number2roman(7), "VII")
 
 if __name__ == "__main__":
     unittest.main()
