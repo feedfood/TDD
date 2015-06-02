@@ -12,14 +12,11 @@ class myTestSuite(unittest.TestCase):
 	if(preset_roman.has_key(number)):
 	    return preset_roman[number]
 
-	if(number==2):
-	    return "II"
-	if(number==3):
-	    return "III"
-	if(number==6):
-	    return "VI"
-    	if(number==7):
-	    return "VII"
+	keys = preset_roman.keys()
+	keys.sort()
+	for key in keys:
+	    if(number-key>0 and number-key<=2):
+		return preset_roman[key]+"".ljust(number-key,"I")
 	return "" 
 
     def test_0_return_empty(self):
