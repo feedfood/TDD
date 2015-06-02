@@ -14,6 +14,8 @@ class myTestSuite(unittest.TestCase):
 
 	if(number==2):
 	    return "II"
+	if(number==3):
+	    return "III"
 	return "" 
 
     def test_0_return_empty(self):
@@ -45,6 +47,9 @@ class myTestSuite(unittest.TestCase):
 
     def test_2_return_II(self):
         self.assertEqual(self.number2roman(2), "II")
+
+    def test_3_return_III(self):
+        self.assertEqual(self.number2roman(3), "III")
 
 if __name__ == "__main__":
     unittest.main()
