@@ -8,9 +8,11 @@ class myTestSuite(unittest.TestCase):
         pass
 
     def prime(self, number):
+	if(number==6):
+	    return [2,3]
 	if(number==4):
 	    return [2,2]
-	if(number>=2):
+	if(number>=2): #return prime number if number is prime
 	    return [number]
 	return [] #return empty if number <= 1
 
@@ -25,6 +27,9 @@ class myTestSuite(unittest.TestCase):
 
     def test_4_return_2x2(self):
         self.assertEqual(self.prime(4), [2,2])
+
+    def test_6_return_2x3(self):
+        self.assertEqual(self.prime(6), [2,3])
 
 if __name__ == "__main__":
     unittest.main()
