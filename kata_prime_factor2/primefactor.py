@@ -8,14 +8,16 @@ class myTestSuite(unittest.TestCase):
         pass
 
     def prime(self, number):
+	result=[]
 	candidate=2
 	while(candidate<number):
-	    if(number%candidate==0 and number/candidate!=1): 
-		return [candidate] + (self.prime(number/candidate)) 
+	    while(number%candidate==0 and number/candidate!=1):
+		result.append(candidate)
+		number = number/candidate
 	    candidate+=1
-	if(number>=2): #return prime number if number is prime
-	    return [number]
-	return [] #return empty if number <= 1
+	if(number>1):
+	    result.append(number);
+	return result;
 
     def test_1_return_empty(self):
         self.assertEqual(self.prime(1), [])
