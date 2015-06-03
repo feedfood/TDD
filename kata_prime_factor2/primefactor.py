@@ -10,8 +10,8 @@ class myTestSuite(unittest.TestCase):
     def prime(self, number):
 	result=[]
 	candidate=2
-	while(candidate<number):
-	    while(number%candidate==0 and number/candidate!=1):
+	while(candidate<=number):
+	    while(number%candidate==0):
 		result.append(candidate)
 		number = number/candidate
 	    candidate+=1
