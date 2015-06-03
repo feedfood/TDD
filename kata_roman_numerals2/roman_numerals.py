@@ -24,7 +24,8 @@ class myTestSuite(unittest.TestCase):
 	    if(key>number):
 		return preset_roman[lastkey]+self.number2roman(number-lastkey)
 	    lastkey=key
-	return "" 
+
+	return preset_roman[lastkey]+self.number2roman(number-lastkey)
 
     def test_0_return_empty(self):
         self.assertEqual(self.number2roman(0), "")
@@ -82,6 +83,9 @@ class myTestSuite(unittest.TestCase):
 
     def test_90_return_XC(self):
         self.assertEqual(self.number2roman(90), "XC")
+
+    def test_1014_return_MXIV(self):
+        self.assertEqual(self.number2roman(1014), "MXIV")
 
 if __name__ == "__main__":
     unittest.main()
