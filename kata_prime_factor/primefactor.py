@@ -42,5 +42,8 @@ class myTestSuite(unittest.TestCase):
 
     def test_9_return_3_3(self):
         self.assertEqual(self.prime(9), [3, 3])
+
+    def test_100_return_2x2x5x5(self):
+        self.assertEqual(self.prime(100), [2,2,5,5])
 if __name__ == "__main__":
     unittest.main()
