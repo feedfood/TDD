@@ -10,10 +10,8 @@ class myTestSuite(unittest.TestCase):
     def prime(self, number):
 	if(number==4):
 	    return [2,2]
-	if(number==3):
-	    return [3]
-	if(number==2):
-	    return [2]
+	if(number>=2):
+	    return [number]
 	return [] #return empty if number <= 1
 
     def test_1_return_empty(self):
