@@ -8,7 +8,7 @@ class myTestSuite(unittest.TestCase):
         pass
 
     def prime(self, number):
-        return None
+        return [] 
 
     def test_1_return_empty(self):
         self.assertEqual(self.prime(1), [])
