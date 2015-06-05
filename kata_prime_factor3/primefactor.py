@@ -10,7 +10,7 @@ class myTestSuite(unittest.TestCase):
     def prime(self, number):
 	result=[]
         if(number>1):
-	    if(number%2==0):
+	    while(number%2==0):
                 result.append(2)
 		number=number/2
 	
@@ -29,6 +29,9 @@ class myTestSuite(unittest.TestCase):
 
     def test_4_return_2x2(self):
         self.assertEqual(self.prime(4), [2,2])
+
+    def test_8_return_2x2x2(self):
+        self.assertEqual(self.prime(8), [2,2,2])
 
 if __name__ == "__main__":
     unittest.main()
