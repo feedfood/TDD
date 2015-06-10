@@ -20,7 +20,7 @@ class myTestSuite(unittest.TestCase):
     def test_3_return_fizz(self):
         self.assertEqual(self.speak(3), "fizz")
 
-    def test_3_return_buzz(self):
+    def test_5_return_buzz(self):
         self.assertEqual(self.speak(5), "buzz")
 
 if __name__ == "__main__":
