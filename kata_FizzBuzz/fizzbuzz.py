@@ -8,7 +8,7 @@ class myTestSuite(unittest.TestCase):
         pass
 
     def speak(self, number):
-        return "1" 
+        return str(number)
 
     def test_1_return_100(self):
         self.assertEqual(self.speak(1), "1")
