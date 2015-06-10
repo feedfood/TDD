@@ -8,10 +8,10 @@ class myTestSuite(unittest.TestCase):
         pass
 
     def speak(self, number):
-        return None 
+        return "1" 
 
     def test_1_return_100(self):
-        self.assertEqual(self.speak(1), 1)
+        self.assertEqual(self.speak(1), "1")
 
 if __name__ == "__main__":
     unittest.main()
