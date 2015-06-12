@@ -11,15 +11,15 @@ class myTestSuite(unittest.TestCase):
 	count=0
 	x_steps=(-1,0,1)
 	y_steps=(-1,0,1)
-	for x_step in x_steps:
-	    for y_step in y_steps:
-		x=center[0]+x_step
-		y=center[1]+y_step
+	for y_step in y_steps:
+	    for x_step in x_steps:
+		x=center[1]+x_step
+		y=center[0]+y_step
 		if(x<0 or y<0):
 		    continue
      	        if(x>3 or y>3):
 		    continue
-	        if(x==center[0] and y==center[1]):
+	        if(x==center[1] and y==center[0]):
 		    continue
 	        if(y>=len(matrix)):
 		    continue
@@ -49,7 +49,7 @@ class myTestSuite(unittest.TestCase):
 	center=(0,0)
         self.assertEqual(self.getNeighbors(matrix,center), 3)
 
-    def test_11x11_return_3(self):
+    def test_11x11_return_3_0(self):
 	matrix=((1,1),(1,1))
 	center=(0,1)
         self.assertEqual(self.getNeighbors(matrix,center), 3)
@@ -63,6 +63,16 @@ class myTestSuite(unittest.TestCase):
 	matrix=((1,1),(1,1))
 	center=(1,1)
         self.assertEqual(self.getNeighbors(matrix,center), 3)
+
+    def test_111x111_return_5(self):
+	matrix=((1,1,1),(1,1,1))
+	center=(0,1)
+        self.assertEqual(self.getNeighbors(matrix,center), 5)
+
+    def test_111x111_return_5_1(self):
+	matrix=((1,1,1),(1,1,1))
+	center=(1,1)
+        self.assertEqual(self.getNeighbors(matrix,center), 5)
 
 if __name__ == "__main__":
     unittest.main()
