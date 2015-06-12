@@ -21,7 +21,11 @@ class myTestSuite(unittest.TestCase):
 		    continue
 	        if(x==center[0] and y==center[1]):
 		    continue
-	        if(matrix[x][y]==1):
+	        if(y>=len(matrix)):
+		    continue
+		if(x>=len(matrix[y])):
+		    continue
+	        if(matrix[y][x]==1):
 		    count+=1
         return count 
 
@@ -39,6 +43,16 @@ class myTestSuite(unittest.TestCase):
 	matrix=((1,1,1,1,1),(1,1,1,1,1),(1,1,1,1,1),(1,1,1,1,1),(1,1,1,1,1))
 	center=(2,2)
         self.assertEqual(self.getNeighbors(matrix,center), 8)
+
+    def test_11x11_return_3(self):
+	matrix=((1,1),(1,1))
+	center=(0,0)
+        self.assertEqual(self.getNeighbors(matrix,center), 3)
+
+    def test_11x11_return_3(self):
+	matrix=((1,1),(1,1))
+	center=(0,1)
+        self.assertEqual(self.getNeighbors(matrix,center), 3)
 
 if __name__ == "__main__":
     unittest.main()
