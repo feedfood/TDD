@@ -15,10 +15,15 @@ class myTestSuite(unittest.TestCase):
 		    count+=1    
         return count 
 
-    def test_3x3x3_return_8(self):
+    def test_111x111x111_return_8(self):
 	matrix=((1,1,1),(1,1,1),(1,1,1))
 	center=(1,1)
         self.assertEqual(self.getNeighbors(matrix,center), 8)
+
+    def test_000x010x000_return_0(self):
+	matrix=((0,0,0),(0,0,0),(0,0,0))
+	center=(0,0)
+        self.assertEqual(self.getNeighbors(matrix,center), 0)
 
 if __name__ == "__main__":
     unittest.main()
