@@ -84,5 +84,10 @@ class myTestSuite(unittest.TestCase):
 	center=(1,1)
         self.assertEqual(self.getNeighbors(matrix,center), 5)
 
+    def test_1x1_return_0(self):
+	matrix=[[1]]
+	center=(0,0)
+        self.assertEqual(self.getNeighbors(matrix,center), 0)
+
 if __name__ == "__main__":
     unittest.main()
