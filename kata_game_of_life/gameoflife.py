@@ -29,6 +29,9 @@ class myTestSuite(unittest.TestCase):
 		    count+=1
         return count 
 
+    def getNextGen(self,currentState,neighbors):
+	return "die" 
+
     def test_111x111x111_return_8(self):
 	matrix=((1,1,1),(1,1,1),(1,1,1))
 	center=(1,1)
@@ -88,6 +91,9 @@ class myTestSuite(unittest.TestCase):
 	matrix=[[1]]
 	center=(0,0)
         self.assertEqual(self.getNeighbors(matrix,center), 0)
+
+    def test_live_and_1_neighbor_then_die(self):
+        self.assertEqual(self.getNextGen("live",1),"die")
 
 if __name__ == "__main__":
     unittest.main()
