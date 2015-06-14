@@ -30,6 +30,8 @@ class myTestSuite(unittest.TestCase):
         return count 
 
     def getNextGen(self,currentState,neighbors):
+        if(neighbors==2):
+	    return "live"
 	return "die" 
 
     def test_111x111x111_return_8(self):
@@ -97,6 +99,9 @@ class myTestSuite(unittest.TestCase):
 
     def test_live_and_0_neighbor_then_die(self):
         self.assertEqual(self.getNextGen("live",0),"die")
+
+    def test_live_and_2_neighbor_then_live(self):
+        self.assertEqual(self.getNextGen("live",2),"live")
 
 if __name__ == "__main__":
     unittest.main()
