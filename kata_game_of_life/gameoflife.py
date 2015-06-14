@@ -95,5 +95,8 @@ class myTestSuite(unittest.TestCase):
     def test_live_and_1_neighbor_then_die(self):
         self.assertEqual(self.getNextGen("live",1),"die")
 
+    def test_live_and_0_neighbor_then_die(self):
+        self.assertEqual(self.getNextGen("live",1),"die")
+
 if __name__ == "__main__":
     unittest.main()
