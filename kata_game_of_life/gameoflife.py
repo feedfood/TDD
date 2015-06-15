@@ -30,12 +30,12 @@ class myTestSuite(unittest.TestCase):
         return count 
 
     def getNextGen(self,currentState,neighbors):
-	if(currentState=="live"):
+        if(currentState=="live"):
             if(neighbors==2 or neighbors==3):
+                return "live"
+        elif(neighbors==3):
 	        return "live"
-	elif(neightbors==3):
-	    return "live"
-	return "die" 
+        return "die" 
 
     def test_111x111x111_return_8(self):
 	matrix=((1,1,1),(1,1,1),(1,1,1))
