@@ -39,10 +39,12 @@ class myTestSuite(unittest.TestCase):
         
     def generate(self,originalMatrix):
         result= [[ 0 for cell in row] for row in originalMatrix]
-        currentState = originalMatrix[0][0]
-        neighbors = self.getNeighbors(originalMatrix,[0,0])
-        nextGenStatus = self.getNextGen(currentState,neighbors)
-        result[0][0]=nextGenStatus
+        for y,row in enumerate(originalMatrix):
+            for x,cell in enumerate(row):
+                currentState = cell
+                neighbors = self.getNeighbors(originalMatrix,[y,x])
+                nextGenStatus = self.getNextGen(currentState,neighbors)
+                result[y][x]=nextGenStatus
         return result 
 
     def test_111x111x111_return_8(self):
@@ -133,9 +135,9 @@ class myTestSuite(unittest.TestCase):
         self.assertEqual(len(result[0]),2)
         self.assertEqual(len(result[1]),2)
         
-    def test_check_first_point_1111_return_1000_(self):
+    def test_1111_return_1111_(self):
         firstGenOfMatrix=[[1,1],[1,1]]
-        secondGenOfMatrix=[[1,0],[0,0]]
+        secondGenOfMatrix=[[1,1],[1,1]]
         result = self.generate(firstGenOfMatrix)
         self.assertEqual(secondGenOfMatrix,result)
 
