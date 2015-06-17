@@ -135,7 +135,7 @@ class myTestSuite(unittest.TestCase):
         self.assertEqual(len(result[0]),2)
         self.assertEqual(len(result[1]),2)
         
-    def test_1111_return_1111_(self):
+    def test_1111_return_1111(self):
         firstGenOfMatrix=[[1,1],[1,1]]
         secondGenOfMatrix=[[1,1],[1,1]]
         result = self.generate(firstGenOfMatrix)
