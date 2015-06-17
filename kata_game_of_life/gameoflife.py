@@ -30,12 +30,20 @@ class myTestSuite(unittest.TestCase):
         return count 
 
     def getNextGen(self,currentState,neighbors):
-        if(currentState=="live"):
+        if(currentState==1):
             if(neighbors==2 or neighbors==3):
-                return "live"
+                return 1
         elif(neighbors==3):
-	        return "live"
-        return "die" 
+	        return 1
+        return 0 
+        
+    def generate(self,originalMatrix):
+        result= [[ 0 for cell in row] for row in originalMatrix]
+        currentState = originalMatrix[0][0]
+        neighbors = self.getNeighbors(originalMatrix,[0,0])
+        nextGenStatus = self.getNextGen(currentState,neighbors)
+        result[0][0]=nextGenStatus
+        return result 
 
     def test_111x111x111_return_8(self):
 	matrix=((1,1,1),(1,1,1),(1,1,1))
@@ -98,26 +106,38 @@ class myTestSuite(unittest.TestCase):
         self.assertEqual(self.getNeighbors(matrix,center), 0)
 
     def test_live_and_1_neighbor_then_die(self):
-        self.assertEqual(self.getNextGen("live",1),"die")
+        self.assertEqual(self.getNextGen(1,1),0)
 
     def test_live_and_0_neighbor_then_die(self):
-        self.assertEqual(self.getNextGen("live",0),"die")
+        self.assertEqual(self.getNextGen(1,0),0)
 
     def test_live_and_2_neighbor_then_live(self):
-        self.assertEqual(self.getNextGen("live",2),"live")
+        self.assertEqual(self.getNextGen(1,2),1)
 
     def test_live_and_3_neighbor_then_live(self):
-        self.assertEqual(self.getNextGen("live",3),"live")
+        self.assertEqual(self.getNextGen(1,3),1)
 
     def test_live_and_4_neighbor_then_die(self):
-        self.assertEqual(self.getNextGen("live",4),"die")
+        self.assertEqual(self.getNextGen(1,4),0)
 
     def test_die_and_3_neighbor_then_live(self):
-        self.assertEqual(self.getNextGen("die",3),"live")
+        self.assertEqual(self.getNextGen(0,3),1)
 
     def test_die_and_2_neighbor_then_die(self):
-        self.assertEqual(self.getNextGen("die",2),"die")
+        self.assertEqual(self.getNextGen(0,2),0)
 
+    def test_return_same_dimension(self):
+        firstGenOfMatrix=[[1,1],[1,1]]
+        result = self.generate(firstGenOfMatrix)
+        self.assertEqual(len(result),2)
+        self.assertEqual(len(result[0]),2)
+        self.assertEqual(len(result[1]),2)
+        
+    def test_check_first_point_1111_return_1000_(self):
+        firstGenOfMatrix=[[1,1],[1,1]]
+        secondGenOfMatrix=[[1,0],[0,0]]
+        result = self.generate(firstGenOfMatrix)
+        self.assertEqual(secondGenOfMatrix,result)
 
 if __name__ == "__main__":
     unittest.main()
