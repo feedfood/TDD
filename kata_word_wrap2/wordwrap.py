@@ -7,6 +7,9 @@ class myTestSuite(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def breakWords(self,result, ss,start,end):
+        return result + ss[:start] + "\n", ss[end:]
+
     def wrap(self, s, length):
         if( s == None):
             return "";
@@ -19,11 +22,9 @@ class myTestSuite(unittest.TestCase):
         while(len(ss)>length):
             spacePos = ss[:length].rfind(" ")
             if(spacePos>=0):
-                result += ss[:spacePos] + "\n" 
-                ss = ss[spacePos+1:]
+                result,ss = self.breakWords(result,ss,spacePos,spacePos+1)
             else:
-                result += ss[:length] + "\n" 
-                ss = ss[length:]
+                result,ss = self.breakWords(result,ss,length,length)
                 
         result += ss
         return result
