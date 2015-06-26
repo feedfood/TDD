@@ -16,10 +16,7 @@ class myTestSuite(unittest.TestCase):
             
         result = ""
         ss = s
-        while(True):
-            if(len(ss)<=length):
-                result += ss
-                break;
+        while(len(ss)>length):
             spacePos = ss[:length].rfind(" ")
             if(spacePos>=0):
                 result += ss[:spacePos] + "\n" 
@@ -27,6 +24,8 @@ class myTestSuite(unittest.TestCase):
             else:
                 result += ss[:length] + "\n" 
                 ss = ss[length:]
+                
+        result += ss
         return result
 
     def testWrap_Null_Returns_Empty(self):
