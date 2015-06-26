@@ -16,7 +16,7 @@ class myTestSuite(unittest.TestCase):
             
         spacePos = s.find(" ")
         if(spacePos>=0):
-            return s[:spacePos] + "\n" + s[spacePos+1:]
+            return s[:spacePos] + "\n" + self.wrap(s[spacePos+1:],length)
         else:
             return s[:length] + "\n" + self.wrap(s[length:],length) 
 
@@ -35,8 +35,11 @@ class myTestSuite(unittest.TestCase):
     def testWrap_OneVeryLongWord_Wrap(self):
         self.assertEqual(self.wrap("verylongword",5),"veryl\nongwo\nrd")        
 
-    def testWrap_TwoWord_Wrap(self):
-        self.assertEqual(self.wrap("word wrap",6),"word\nwrap")        
+    def testWrap_TwoWords_Wrap(self):
+        self.assertEqual(self.wrap("word wrap",6),"word\nwrap")
+        
+    def testWrap_ThreeWords_Wrap(self):
+        self.assertEqual(self.wrap("word word wrap",6),"word\nword\nwrap")        
 
 if __name__ == "__main__":
     unittest.main()
