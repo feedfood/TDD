@@ -10,6 +10,9 @@ class myTestSuite(unittest.TestCase):
     def wrap(self, s, length):
         if( s == None):
             return "";
+            
+        if(length < 1):
+            raise IndexError
    
         if(len(s)<=length):
             return s;
@@ -43,6 +46,10 @@ class myTestSuite(unittest.TestCase):
 
     def testWrap_ThreeWords_Wrap_at_second_space(self):
         self.assertEqual(self.wrap("word wrap here",10),"word wrap\nhere")
+        
+    def testWrap_length_less_than_1(self):
+        with self.assertRaises(IndexError):
+            self.wrap("xxx",-1)
 
 if __name__ == "__main__":
     unittest.main()
