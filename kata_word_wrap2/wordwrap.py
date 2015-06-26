@@ -13,15 +13,21 @@ class myTestSuite(unittest.TestCase):
             
         if(length < 1):
             raise IndexError
-   
-        if(len(s)<=length):
-            return s;
-          
-        spacePos = s[:length].rfind(" ")
-        if(spacePos>=0):
-            return s[:spacePos] + "\n" + self.wrap(s[spacePos+1:],length)
-        else:
-            return s[:length] + "\n" + self.wrap(s[length:],length) 
+            
+        result = ""
+        ss = s
+        while(True):
+            if(len(ss)<=length):
+                result += ss
+                break;
+            spacePos = ss[:length].rfind(" ")
+            if(spacePos>=0):
+                result += ss[:spacePos] + "\n" 
+                ss = ss[spacePos+1:]
+            else:
+                result += ss[:length] + "\n" 
+                ss = ss[length:]
+        return result
 
     def testWrap_Null_Returns_Empty(self):
         self.assertEqual(self.wrap(None,10),"")
