@@ -13,5 +13,8 @@ class myTestSuite(unittest.TestCase):
     def testWrap_Null_Returns_Empty(self):
         self.assertEqual(self.wrap(None,10),"")
 
+    def testWrap_Empty_Returns_Empty(self):
+        self.assertEqual(self.wrap("",10),"")
+
 if __name__ == "__main__":
     unittest.main()
