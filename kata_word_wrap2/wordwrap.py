@@ -8,7 +8,7 @@ class myTestSuite(unittest.TestCase):
         pass
 
     def wrap(self, s, length):
-        return None
+        return ""
 
     def testWrapNullReturnsEmptyString(self):
         self.assertEqual(self.wrap(None,10),"")
